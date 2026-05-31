@@ -1,6 +1,8 @@
 {
   "buildCommand": "bun run build",
-  "installCommand": "bun install --no-cache",
-  "outputDirectory": "dist",
-  "framework": null
+  "installCommand": "bun install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/((?!assets/).*)", "destination": "/api" }
+  ]
 }
