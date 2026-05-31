@@ -1,0 +1,6 @@
+{
+  "buildCommand": "bun run build",
+  "installCommand": "bun install --no-cache",
+  "outputDirectory": "dist",
+  "framework": null
+}
