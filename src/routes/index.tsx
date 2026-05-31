@@ -11,7 +11,7 @@ import anyMemoryImg from "@/assets/any-memory.png";
 import anyCommImg from "@/assets/any-comm.png";
 import observabilityImg from "@/assets/observability.png";
 
-const diagramModules = import.meta.glob("@/assets/diagrams/*.jpg", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
+const diagramModules = import.meta.glob("../assets/diagrams/*.jpg", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
 const diagrams = Object.entries(diagramModules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, src], i) => ({
