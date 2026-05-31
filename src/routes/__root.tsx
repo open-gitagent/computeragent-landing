@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -9,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { initMixpanel } from "../lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -109,6 +111,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  // Initialize Mixpanel once on the client; it auto-tracks the page view.
+  useEffect(() => {
+    initMixpanel();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
